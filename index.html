@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu chaudhary Design | Graphic Designer Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --accent-color: #00d4ff;
+            --card-bg: #1e1e1e;
+            --font-main: 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(18, 18, 18, 0.95);
+            z-index: 100;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
+        .logo span { color: var(--accent-color); }
+
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 5%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio { padding: 4rem 5%; }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-buttons button {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .filter-buttons button.active, .filter-buttons button:hover {
+            color: var(--text-color);
+            text-decoration: underline;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card:hover { transform: translateY(-5px); }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #333; /* Placeholder color */
+        }
+
+        .card-info { padding: 1.5rem; }
+        .card-info h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .card-info p { color: #888; font-size: 0.9rem; }
+
+        /* --- ABOUT & CONTACT --- */
+        .about {
+            padding: 6rem 5%;
+            background-color: var(--card-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .about-text p { margin-bottom: 1.5rem; color: #ccc; }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus { outline: 1px solid var(--accent-color); }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Alex<span>Design</span>.</div>
+        <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Visual storytelling<br>for bold brands.</h1>
+        <p>I am a multidisciplinary graphic designer specializing in branding, UI design, and art direction.</p>
+        <a href="#work" class="btn">View My Work</a>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="work" class="portfolio">
+        <div class="section-header">
+            <h2>Selected Works</h2>
+            <div class="filter-buttons">
+                <button class="active" onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('branding')">Branding</button>
+                <button onclick="filterProjects('web')">Web Design</button>
+                <button onclick="filterProjects('print')">Print</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1" class="card-image">
+                <div class="card-info">
+                    <h3>Neon Identity</h3>
+                    <p>Branding / Logo Design</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="web">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2" class="card-image">
+                <div class="card-info">
+                    <h3>FinTech App</h3>
+                    <p>UI/UX Design</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="print">
+                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3" class="card-image">
+                <div class="card-info">
+                    <h3>Editorial Layout</h3>
+                    <p>Print / Magazine</p>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="branding">
+                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 4" class="card-image">
+                <div class="card-info">
+                    <h3>Eco Packaging</h3>
+                    <p>Product Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h2>Design with purpose.</h2>
+            <p>With over 5 years of experience, I help companies translate their vision into visual reality. I believe that good design is not just about making things look pretty, but about solving problems effectively.</p>
+            <p>Based in New York, available for freelance worldwide.</p>
+        </div>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea rows="5" placeholder="Tell me about your project"></textarea>
+            <button class="btn">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Alex Design. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple filtering script
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-buttons button');
+
+            // Update active button state
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === category || (category === 'all' && btn.innerText === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Show/Hide cards
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
