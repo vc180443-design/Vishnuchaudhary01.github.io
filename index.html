@@ -1,396 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishnu Chaudhary | Graphic Designer Portfolio</title>
-    <style>
-        /* --- CSS STYLES --- */
-        :root {
-            --primary-color: #00d2ff; /* Cyan accent */
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-light: #f5f5f5;
-            --text-gray: #a0a0a0;
-        }
+<meta charset="UTF-8">
+<title>Vishnu Chaudhary Resume</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+}
 
-        /* Header */
-        header {
-            background-color: rgba(18, 18, 18, 0.95);
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-        }
+.container{
+width:900px;
+margin:auto;
+background:white;
+padding:30px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+.header{
+display:flex;
+align-items:center;
+border-bottom:2px solid #333;
+padding-bottom:20px;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+.profile-img{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+margin-right:30px;
+}
 
-        nav ul li {
-            margin-left: 20px;
-        }
+.name{
+font-size:32px;
+font-weight:bold;
+}
 
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
+.title{
+color:#555;
+font-size:18px;
+}
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
+.section{
+margin-top:30px;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            /* Background Image */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-        }
+.section h2{
+border-bottom:2px solid #444;
+padding-bottom:5px;
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
+.skills span{
+display:inline-block;
+background:#333;
+color:white;
+padding:6px 12px;
+margin:5px;
+border-radius:4px;
+font-size:14px;
+}
 
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .contact-info-hero {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-            margin-top: 20px;
-        }
-
-        .contact-info-hero p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 80px 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 10px auto;
-        }
-
-        /* Software List */
-        .software-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .software-tag {
-            background-color: var(--bg-card);
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: 1px solid #333;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            cursor: default;
-        }
-
-        .software-tag:hover {
-            background-color: var(--primary-color);
-            color: #000;
-            transform: translateY(-3px);
-        }
-
-        /* Portfolio Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            background-color: var(--bg-card);
-            height: 250px; /* Fixed height for uniformity */
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .overlay {
-            transform: translateY(0);
-        }
-
-        .overlay h3 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-        }
-
-        .overlay p {
-            font-size: 0.9rem;
-            color: #ddd;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #000;
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        .footer-contacts {
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #000;
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { flex-direction: column; padding: 15px; }
-            nav ul { margin-top: 15px; }
-        }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">Vishnu Design</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#software">Software</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="container">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Vishnu Chaudhary</h1>
-        <h2>Graphic Designer | UI/UX | Branding Expert</h2>
-        <div class="contact-info-hero">
-            <p>📧 vs1254346@gmail.com</p>
-            <p>📞 +91 9084413381</p>
-        </div>
-        <a href="#portfolio" class="btn">View My Work</a>
-    </section>
+<div class="header">
 
-    <!-- Software Skills Section -->
-    <section id="software">
-        <h2 class="section-title">Software Proficiency</h2>
-        <p style="text-align: center; margin-bottom: 30px; color: #aaa;">I am proficient in over 30+ design and productivity tools.</p>
-        
-        <div class="software-grid">
-            <!-- Adobe Suite -->
-            <div class="software-tag">Adobe Photoshop</div>
-            <div class="software-tag">Adobe Illustrator</div>
-            <div class="software-tag">Adobe InDesign</div>
-            <div class="software-tag">Adobe After Effects</div>
-            <div class="software-tag">Adobe Premiere Pro</div>
-            <div class="software-tag">Adobe Lightroom</div>
-            <div class="software-tag">Adobe XD</div>
-            <div class="software-tag">Adobe Animate</div>
-            
-            <!-- UI/UX & Web -->
-            <div class="software-tag">Figma</div>
-            <div class="software-tag">Sketch</div>
-            <div class="software-tag">Adobe Dreamweaver</div>
-            <div class="software-tag">HTML5</div>
-            <div class="software-tag">CSS3</div>
-            <div class="software-tag">JavaScript</div>
-            <div class="software-tag">WordPress</div>
-            <div class="software-tag">Wix</div>
+<img src="profile.jpg" class="profile-img">
 
-            <!-- 3D & Video -->
-            <div class="software-tag">Blender 3D</div>
-            <div class="software-tag">Cinema 4D</div>
-            <div class="software-tag">Maya</div>
-            <div class="software-tag">DaVinci Resolve</div>
-            <div class="software-tag">Final Cut Pro</div>
+<div>
+<div class="name">Vishnu Chaudhary</div>
+<div class="title">3D Artist | Graphic Designer | VFX Artist</div>
 
-            <!-- Mobile & Others -->
-            <div class="software-tag">Procreate</div>
-            <div class="software-tag">Affinity Designer</div>
-            <div class="software-tag">Affinity Photo</div>
-            <div class="software-tag">CorelDRAW</div>
-            <div class="software-tag">Canva</div>
-            <div class="software-tag">Inkscape</div>
-            <div class="software-tag">GIMP</div>
-            <div class="software-tag">Trello</div>
-            <div class="software-tag">Slack</div>
-            <div class="software-tag">Notion</div>
-            <div class="software-tag">Miro</div>
-            <div class="software-tag">Zeplin</div>
-            <div class="software-tag">Framer</div>
-            <div class="software-tag">Webflow</div>
-            <div class="software-tag">AutoCAD</div>
-            <div class="software-tag">Substance Painter</div>
-        </div>
-    </section>
+<p>
+📧 vishnusingn4@gmail.com <br>
+📞 9084413381
+</p>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2 class="section-title">My Portfolio</h2>
-        <div class="gallery-grid">
-            
-            <!-- Item 1: Logo Design -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799314346d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Logo Design">
-                <div class="overlay">
-                    <h3>Brand Identity</h3>
-                    <p>Logo Design</p>
-                </div>
-            </div>
+</div>
+</div>
 
-            <!-- Item 2: UI/UX -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="UI/UX Design">
-                <div class="overlay">
-                    <h3>Mobile App</h3>
-                    <p>UI/UX Design</p>
-                </div>
-            </div>
 
-            <!-- Item 3: Social Media -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Social Media">
-                <div class="overlay">
-                    <h3>Social Media</h3>
-                    <p>Instagram Post</p>
-                </div>
-            </div>
+<div class="section">
+<h2>Education</h2>
 
-            <!-- Item 4: Magazine -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Magazine Design">
-                <div class="overlay">
-                    <h3>Editorial</h3>
-                    <p>Magazine Layout</p>
-                </div>
-            </div>
+<p>
+Professional Program in 3D Animation & VFX <br>
+MAAC Mathura
+</p>
 
-            <!-- Item 5: Poly Art -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Poly Art">
-                <div class="overlay">
-                    <h3>3D Art</h3>
-                    <p>Poly Art / Low Poly</p>
-                </div>
-            </div>
+</div>
 
-            <!-- Item 6: Mockup -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1558655146-d09347e0b7a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Mockup">
-                <div class="overlay">
-                    <h3>Product</h3>
-                    <p>Realistic Mockup</p>
-                </div>
-            </div>
 
-            <!-- Item 7: Branding -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Branding">
-                <div class="overlay">
-                    <h3>Corporate</h3>
-                    <p>Full Branding Kit</p>
-                </div>
-            </div>
+<div class="section">
+<h2>Expert Skills</h2>
 
-            <!-- Item 8: Poster -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Poster Design">
-                <div class="overlay">
-                    <h3>Marketing</h3>
-                    <p>Event Poster</p>
-                </div>
-            </div>
+<div class="skills">
 
-            <!-- Item 9: Packaging -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1632515904069-743435842323?ixlib=rb-1.2.1&auto=format&fit
+<span>Graphic Designer</span>
+<span>Video Editor</span>
+<span>3D Artist</span>
+<span>VFX Artist</span>
+
+</div>
+
+</div>
+
+
+<div class="section">
+<h2>Software Skills</h2>
+
+<div class="skills">
+
+<span>Photoshop</span>
+<span>Illustrator</span>
+<span>InDesign</span>
+<span>Premiere Pro</span>
+<span>After Effects</span>
+<span>3ds Max</span>
+<span>Maya</span>
+<span>Nuke</span>
+
+</div>
+
+</div>
+
+
+<div class="section">
+<h2>Profile</h2>
+
+<p>
+Creative and passionate 3D Animation and VFX student with strong skills in graphic design,
+video editing, and visual effects production. Experienced in industry-standard software
+to create motion graphics, visual effects, and 3D assets.
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
